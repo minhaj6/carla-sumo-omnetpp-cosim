@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<!-- debug config -->
+<launch>
+    <copy file="town5.net.xml" />
+    <copy file="town5.rou.xml" />
+    <copy file="carlavtypes.rou.xml" />
+    <copy file="town5.poly.xml" />
+    <copy file="town5.sumo.cfg" type="config" />
+</launch>
+
