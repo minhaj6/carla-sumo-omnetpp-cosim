@@ -22,3 +22,42 @@ Please use the Github Issues or reach out to [Minhaj Ahmad](https://minhaj6.gith
 
 This co-simulation platform uses a lot of open-source work done by Carla developers (Carla-Sumo Co-SIM) and Dr. Christoph Sommer (Veins)
 
+
+# Frequent issues
+## Increasing InstantVeins VM size
+
+[InstantVeins](https://veins.car2x.org/documentation/instant-veins/) uses 20GB of virtual storage, which might not be sufficient as you are developing new things. We can extend the virtual disk space as our project need grows. 
+
+It is a two step process. 
+
+### Increase VirtualBox virtual drive space
+
+1. Navigate to **Tools -> Media** in the VirtualBox Manager interface.
+
+2. Select the _instant-veins*.vdi_ file in **Hard disks** tab. 
+
+3. Increase the size from the **Attributes** tab and apply. 
+
+Note: _the size slider will be grayed out if the VM is already running. You need to power off the VM completely to make this change._
+
+### Extend the filesystem to utilize the increased space
+
+1. Now run the InstantVeins virtual machine and log-in.
+
+2. Use **cfdisk** tool to extend the free space. [what is cfdisk](https://cfdisk.com/#:~:text=Example%203%3A%20Resizing%20a%20Partition)
+
+```
+sudo cfdisk
+
+resize
+
+write
+
+quit
+```
+
+3. Install _lvm2_ package. We need a tool `resize2fs`. Command - `sudo apt install lvm2`
+
+4. Run `sudo resize2fs /dev/sda1` 
+
+Check that the disk is extended. Command - `df -h`
