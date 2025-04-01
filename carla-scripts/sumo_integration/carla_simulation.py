@@ -26,12 +26,27 @@ class CarlaSimulation(object):
     """
     CarlaSimulation is responsible for the management of the carla simulation.
     """
-    def __init__(self, host, port, step_length, town_map):
+    def __init__(self, host, port, step_length, town_map, sumo_cfg_file):
         self.client = carla.Client(host, port)
         self.client.set_timeout(2.0)
 
         # self.world = self.client.get_world()
-        self.world = self.client.load_world(town_map)
+        if town_map != "OSM":
+            self.world = self.client.load_world(town_map)
+            
+            # Get the spectator actor
+            spectator = self.world.get_spectator()
+
+            # Set the spectator transform
+            transform = carla.Transform(
+                location=carla.Location(x=-27, y=0, z=200),
+                rotation=carla.Rotation(roll=90, pitch=-90, yaw=180)
+            )
+
+            spectator.set_transform(transform)
+
+        else:
+            pass
         self.blueprint_library = self.world.get_blueprint_library()
         self.step_length = step_length
 

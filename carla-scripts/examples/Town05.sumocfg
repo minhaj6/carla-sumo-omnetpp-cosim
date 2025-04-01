@@ -3,7 +3,7 @@
 
     <input>
         <net-file value="net/Town05.net.xml"/>
-        <route-files value="carlavtypes.rou.xml,rou/Town05.rou.xml"/>
+        <route-files value="carlavtypes.rou.xml"/>
     </input>
 
     <gui_only>

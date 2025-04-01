@@ -220,7 +220,8 @@ def synchronization_loop(args):
     sumo_simulation = SumoSimulation(args.sumo_cfg_file, args.step_length, args.sumo_host,
                                      args.sumo_port, args.sumo_gui, args.client_order)
 
-    carla_simulation = CarlaSimulation(args.carla_host, args.carla_port, args.step_length, args.town_map)
+    carla_simulation = CarlaSimulation(args.carla_host, args.carla_port, args.step_length, 
+                                       args.town_map, args.sumo_cfg_file)
 
     synchronization = SimulationSynchronization(sumo_simulation, carla_simulation, args.tls_manager,
                                                 args.sync_vehicle_color, args.sync_vehicle_lights)
