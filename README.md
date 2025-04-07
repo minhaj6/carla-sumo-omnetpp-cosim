@@ -2,17 +2,33 @@
 
 ## Note
 
-We are using [InstantVeins](https://veins.car2x.org/documentation/instant-veins/) as a component of the cosimulation. Please make sure the instantveins and Carla in the same network. One way to do that is using the "Bridged Adapter" network mode in VirtualBox. 
+We are using [InstantVeins](https://veins.car2x.org/documentation/instant-veins/) as a component of the cosimulation, for quick setup. Please make sure the instantveins and Carla in the same network. One way to do that is using the "Bridged Adapter" network mode in VirtualBox.
+
+Go to VirtualBox -> Settings -> Networks -> Attached to : Bridged Adapter. 
 
 ## Running the Cosimulation
 
-Step 1: Run Carla
+Step 1: Run Carla in your host computer (Tested using Carla 0.9.15)
 
-Step 2: Launch `sumo_launchd.py` script. Run command: `./sumo_launchd.py -vv -c sumo-gui`
+Note: If host computer is resource constrained older computer, running carla with `./CarlaUE4.sh -quality-level=Low` might help
 
-Step 3: Launch `omnetpp.ini` from the project (`opp_run` command or from OMNeT++ IDE)
+Step 2: Launch the InstantVeins VM. 
 
-Step 4: Change into `carla-scripts` directory. Run the `run_synchronization.py` script. The command is given below.
+Step 3: Define `SUMO_HOME` environment variable. Run `echo 'export SUMO_HOME="$HOME/src/sumo"' >> ~/.zshrc`
+
+Step 4: Clone this github repository in your omnet++ workspace. 
+
+Step 5: Launch OMNeT++ IDE. 
+
+Step 6: Import this github repository as a OMNeT++ project. 
+
+Step 7: Launch `sumo_launchd.py` script. Run command: `./sumo_launchd.py -vv -c sumo-gui`
+
+Step 8: Run simulation on `omnetpp.ini` from the IDE. 
+
+Step 9: Press the run button on the OMNeT++ simulation GUI.
+
+Step 10: Go to `carla-scripts` directory. Run the `run_synchronization.py` script with the following arguments.
 
 ```
 python3 run_synchronization.py --carla-host 10.116.48.5 --sumo-host localhost --sumo-port 49286 --step-length 0.1 --client-order 2 --town-map Town05 --tls-manager sumo examples/Town05.sumocfg --debug
