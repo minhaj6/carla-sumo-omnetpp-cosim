@@ -22,7 +22,7 @@ Step 5: Launch OMNeT++ IDE.
 
 Step 6: Import this github repository as a OMNeT++ project. 
 
-Step 7: Launch `sumo_launchd.py` script. Run command: `./sumo_launchd.py -vv -c sumo-gui`
+Step 7: Launch `sumo_launchd.py` script. Run command: `./sumo-launchd.py -vv -c sumo-gui`
 
 Step 8: Run simulation on `omnetpp.ini` from the IDE. 
 
