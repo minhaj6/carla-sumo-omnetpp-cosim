@@ -1,5 +1,9 @@
 # CARLA-SUMO-OMNET++ Co-Simulation Platform
 
+## Note
+
+We are using [InstantVeins](https://veins.car2x.org/documentation/instant-veins/) as a component of the cosimulation. Please make sure the instantveins and Carla in the same network. One way to do that is using the "Bridged Adapter" network mode in VirtualBox. 
+
 ## Running the Cosimulation
 
 Step 1: Run Carla
