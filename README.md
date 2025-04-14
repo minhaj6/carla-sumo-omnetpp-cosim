@@ -1,5 +1,7 @@
 # CARLA-SUMO-OMNET++ Co-Simulation Platform
 
+This environment is tested and verified in Linux and Windows systems. 
+
 ## Version: 
 
 - Carla : 0.9.15
