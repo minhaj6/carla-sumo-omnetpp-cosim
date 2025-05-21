@@ -15,6 +15,12 @@ Go to VirtualBox -> Settings -> Networks -> Attached to : Bridged Adapter.
 
 ## Running the Cosimulation
 
+The following videos go through the installation process - 
+1. https://youtu.be/FmYy6aTucpQ?si=BtcY1etnvzGCWUxR
+2. https://youtu.be/E0PoBPkh720?si=QJvpPN7iW1jc-n7R
+
+Or, 
+
 Step 1: Run Carla in your host computer (Tested using Carla 0.9.15)
 
 Note: If host computer is resource constrained older computer, running carla with `./CarlaUE4.sh -quality-level=Low` might help
