@@ -322,7 +322,7 @@ def set_sumoconfig_option(config_parser, config_xml, section, key, value):
         key_node.setAttribute("value", str(value))
 
 
-def copy_and_modify_files(basedir, copy_nodes, runpath, remote_port, seed):
+def copy_and_modify_files(basedir, copy_nodes, runpath, remote_port, seed, options):
     """
     Copy (and modify) files, return config file name
     """
@@ -368,7 +368,7 @@ def copy_and_modify_files(basedir, copy_nodes, runpath, remote_port, seed):
             config_xml = config_parser.documentElement
 
             set_sumoconfig_option(config_parser, config_xml, "traci_server", "remote-port", remote_port)
-            set_sumoconfig_option(config_parser, config_xml, "traci_server", "num-clients", 2)  ##### experimentation
+            set_sumoconfig_option(config_parser, config_xml, "traci_server", "num-clients", options.number_of_clients)  ##### experimentation
             
             
             set_sumoconfig_option(config_parser, config_xml, "random_number", "seed", seed)
@@ -389,7 +389,7 @@ def copy_and_modify_files(basedir, copy_nodes, runpath, remote_port, seed):
     return config_file_name
 
 
-def handle_launch_configuration(sumo_command, shlex, launch_xml_string, client_socket, keep_temp):
+def handle_launch_configuration(sumo_command, shlex, launch_xml_string, client_socket, keep_temp, options):
     """
     Process launch configuration in launch_xml_string.
     """
@@ -419,7 +419,7 @@ def handle_launch_configuration(sumo_command, shlex, launch_xml_string, client_s
         remote_port = 49286
 
         # copy (and modify) files
-        config_file_name = copy_and_modify_files(basedir, copy_nodes, runpath, remote_port, seed)
+        config_file_name = copy_and_modify_files(basedir, copy_nodes, runpath, remote_port, seed, options)
 
         # run SUMO
         result_xml = run_sumo(runpath, sumo_command, shlex, config_file_name, remote_port, seed, client_socket, unused_port_lock, keep_temp)
@@ -517,7 +517,7 @@ def read_launch_config(conn):
     return data
         
         
-def handle_connection(sumo_command, shlex, conn, addr, keep_temp):
+def handle_connection(sumo_command, shlex, conn, addr, keep_temp, options):
     """
     Handle incoming connection.
     """
@@ -526,7 +526,7 @@ def handle_connection(sumo_command, shlex, conn, addr, keep_temp):
 
     try:
         data = read_launch_config(conn)
-        handle_launch_configuration(sumo_command, shlex, data, conn, keep_temp)
+        handle_launch_configuration(sumo_command, shlex, data, conn, keep_temp, options)
 
     except Exception as e:
         logging.error("Aborting on error: %s" % e)
@@ -536,7 +536,8 @@ def handle_connection(sumo_command, shlex, conn, addr, keep_temp):
         conn.close()
 
 
-def wait_for_connections(sumo_command, shlex, sumo_port, bind_address, do_daemonize, do_kill, pidfile, keep_temp):
+def wait_for_connections(sumo_command, shlex, sumo_port, bind_address, do_daemonize, do_kill, pidfile, keep_temp,
+        options):
     """
     Open TCP socket, wait for connections, call handle_connection for each
     """
@@ -558,7 +559,7 @@ def wait_for_connections(sumo_command, shlex, sumo_port, bind_address, do_daemon
         while True:
             conn, addr = listener.accept()
             logging.debug("Connection from %s on port %d" % addr)
-            start_new_thread(handle_connection, (sumo_command, shlex, conn, addr, keep_temp))
+            start_new_thread(handle_connection, (sumo_command, shlex, conn, addr, keep_temp, options))
     
     except SystemExit:
         logging.warning("Killed.")
@@ -654,11 +655,14 @@ def main():
     parser.add_option("-L", "--logfile", dest="logfile", default=os.path.join(tempfile.gettempdir(), "sumo-launchd.log"), help="log messages to LOGFILE [default: %default]", metavar="LOGFILE")
     parser.add_option("-v", "--verbose", dest="count_verbose", default=0, action="count", help="increase verbosity [default: don't log infos, debug]")
     parser.add_option("-q", "--quiet", dest="count_quiet", default=0, action="count", help="decrease verbosity [default: log warnings, errors]")
+    parser.add_option("-n", "--number-of-clients", dest="number_of_clients", default=2, action="store", help="Number of SUMO clients that will connect.")
     parser.add_option("-d", "--daemon", dest="daemonize", default=False, action="store_true", help="detach and run as daemon [default: no]")
     parser.add_option("-k", "--kill", dest="kill", default=False, action="store_true", help="send SIGTERM to running daemon first [default: no]")
     parser.add_option("-P", "--pidfile", dest="pidfile", default=os.path.join(tempfile.gettempdir(), "sumo-launchd.pid"), help="if running as a daemon, write pid to PIDFILE [default: %default]", metavar="PIDFILE")
     parser.add_option("-t", "--keep-temp", dest="keep_temp", default=False, action="store_true", help="keep all temporary files [default: no]")
+
     (options, args) = parser.parse_args()
+
     _LOGLEVELS = (logging.ERROR, logging.WARN, logging.INFO, logging.DEBUG)
     loglevel = _LOGLEVELS[max(0, min(1 + options.count_verbose - options.count_quiet, len(_LOGLEVELS)-1))]
 
@@ -675,7 +679,8 @@ def main():
         logging.warning("Superfluous command line arguments: \"%s\"" % " ".join(args))
 
     # this is where we'll spend our time
-    wait_for_connections(options.command, options.shlex, options.port, options.bind, options.daemonize, options.kill, options.pidfile, options.keep_temp)
+    wait_for_connections(options.command, options.shlex, options.port, options.bind, options.daemonize, options.kill, options.pidfile, options.keep_temp,
+            options)
 
 
 # Start main() when run interactively

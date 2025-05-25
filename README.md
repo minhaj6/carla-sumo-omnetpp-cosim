@@ -35,13 +35,13 @@ Step 5: Launch OMNeT++ IDE.
 
 Step 6: Import this github repository as a OMNeT++ project. 
 
-Step 7: Launch `sumo_launchd.py` script. Run command: `./sumo-launchd.py -vv -c sumo-gui`
+Step 7: Launch `sumo_launchd.py` script. Run command: `./sumo-launchd.py -vv -c sumo-gui`. If you want to connect additional SUMO clients for any experimentation or data collection, use the flag `-n` or `--number-of-clients`. If the number of clients is not mentioned, SUMO starts with expectation of two clients (Carla and OMNeT++). Example for starting with 3 clients - `./sumo-launchd.py -vv -c sumo-gui -n 3`.
 
 Step 8: Run simulation on `omnetpp.ini` from the IDE. 
 
 Step 9: Press the run button on the OMNeT++ simulation GUI.
 
-Step 10: Go to `carla-scripts` directory. Run the `run_synchronization.py` script with the following arguments.
+Step 10: Go to `carla-scripts` directory. Run the `run_synchronization.py` script with the following arguments. Change the IP address of `--carla-host` option according to your set-up. 
 
 ```
 python3 run_synchronization.py --carla-host 10.116.48.5 --sumo-host localhost --sumo-port 49286 --step-length 0.1 --client-order 2 --town-map Town05 --tls-manager sumo examples/Town05.sumocfg --debug
