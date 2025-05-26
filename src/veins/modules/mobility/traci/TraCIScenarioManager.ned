@@ -76,11 +76,11 @@ simple TraCIScenarioManager
         double penetrationRate = default(1); //the probability of a vehicle being equipped with Car2X technology
         bool ignoreGuiCommands = default(false); // whether to ignore all TraCI commands that only make sense when the server has a graphical user interface
 
-		// stuff from 5.3 
+		//////////// stuff from 5.3 
 		//int order = default(-1); // specific position in the multi-client execution order of the TraCI server to request upon connecting (-1: do not request a position)
         //bool ignoreUnknownSubscriptionResults = default(false); // whether to (try and) ignore any subscription result we did not request (but another client might have)
 		int order = default(1);
 		bool ignoreUnknownSubscriptionResults = default(true);
-		// stuff from 5.3
+		/////////// stuff from 5.3
 }
 

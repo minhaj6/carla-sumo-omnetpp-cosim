@@ -258,10 +258,10 @@ void TraCIScenarioManager::initialize(int stage)
     penetrationRate = par("penetrationRate").doubleValue();
     ignoreGuiCommands = par("ignoreGuiCommands");
 
-    // stuff from 5.3
+    ////////////////////// stuff from 5.3
     order = par("order");
     ignoreUnknownSubscriptionResults = par("ignoreUnknownSubscriptionResults");
-    // stuff from 5.3
+    ///////////////////// stuff from 5.3
 
 
     host = par("host").stdstringValue();
@@ -1071,7 +1071,7 @@ void TraCIScenarioManager::processVehicleSubscription(std::string objectId, TraC
             ASSERT(varType == TYPE_DOUBLE);
             buf >> width;
             numRead++;
-        }   // stuff from 5.3
+        }   /////////////////////////////// stuff from 5.3
         else if (ignoreUnknownSubscriptionResults) {
             static bool haveWarned = false;
             uint8_t varType;

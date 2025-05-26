@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- near miss case in a stop controlled T intersection in town 05 -->
+
+<routes>
+    <vehicle id="1" type="vehicle.carlamotors.carlacola" depart="0.00">
+        <route edges= "-19.0.00 -20.0.00"/>
+    </vehicle>
+    <vehicle id="0" type="vehicle.carlamotors.carlacola" depart="19.0">
+        <route edges= "-48.0.00 19.0.00"/> 
+    </vehicle>
+</routes>
