@@ -13,6 +13,19 @@ We are using [InstantVeins](https://veins.car2x.org/documentation/instant-veins/
 
 Go to VirtualBox -> Settings -> Networks -> Attached to : Bridged Adapter. 
 
+## Computer Hardware
+
+The most resource heavy part of the consimulation is the Carla simulator. The recommended system for the Carla simulator is provided below. This system can run the cosimulation platfrom without any hiccups. 
+### Recommended system - 
+CPU: Intel i7 gen 9th - 11th / Intel i9 gen 9th - 11th / AMD ryzen 7 / AMD ryzen 9 \
+RAM: +32 GB RAM memory\
+GPU: NVIDIA RTX 3070 / NVIDIA RTX 3080 / NVIDIA RTX 4090
+
+### System used in development - 
+CPU: Intel i9 gen 14th\
+RAM: 64 GB memory\
+GPU: NVIDIA RTX 4090
+
 ## Running the Cosimulation
 
 The following videos go through the installation process - 
