@@ -1,15 +1,15 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2507.09186-b31b1b.svg)](https://arxiv.org/abs/2507.09186)
-# CARLA-SUMO-OMNeT++ Co-Simulation Platform for Cybersecurity, Safety, and Mobility Research
+# OpenCAMS: AN OPEN-SOURCE CONNECTED AND AUTOMATED MOBILITY CO-SIMULATION PLATFORM
 
-This environment is tested and verified in Linux and Windows systems. 
+OpenCAMS enables synchronized co-simulation by integrating SUMO for traffic flow, CARLA for high-fidelity sensor simulation, and OMNeT++ for network communication.
 
-## Version
+## Coming soon...
 
-- Carla : 0.9.15
-- InstantVeins: instant-veins-5.2-i1
+**Use Case**: Implementation of NIST-standardized post-quantum digital signature algorithms in Cellular Vehicle-to-Everything (C-V2X) communication for intelligent transportation system applications using OpenCAMS.
+
 
 ## Citation
-If you find this work useful in your research, please consider citing our paper: [**OpenCAMS: An Open‑Source Connected and Automated Mobility Co‑Simulation Platform for Advancing Next‑Generation Intelligent Transportation Systems Research**](https://arxiv.org/abs/2507.09186) 
+If you find this platform useful in your research, please consider citing our paper: [**OpenCAMS: An Open‑Source Connected and Automated Mobility Co‑Simulation Platform for Advancing Next‑Generation Intelligent Transportation Systems Research**](https://arxiv.org/abs/2507.09186) 
 
 ```bibtex
 @article{ahmad2025opencams,
@@ -20,8 +20,15 @@ If you find this work useful in your research, please consider citing our paper:
 }
 ```
 
+## Version
 
+- Carla : 0.9.15
+- InstantVeins: instant-veins-5.2-i1
+
+  
 ## Note
+
+This environment is tested and verified in Linux and Windows systems. 
 
 We are using [InstantVeins](https://veins.car2x.org/documentation/instant-veins/) as a component of the cosimulation, for quick setup. Please make sure the instantveins and Carla in the same network. One way to do that is using the "Bridged Adapter" network mode in VirtualBox.
 
