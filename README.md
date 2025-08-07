@@ -1,11 +1,25 @@
-# CARLA-SUMO-OMNET++ Co-Simulation Platform
+[![arXiv](https://img.shields.io/badge/arXiv-2507.09186-b31b1b.svg)](https://arxiv.org/abs/2507.09186)
+# CARLA-SUMO-OMNET++ Co-Simulation Platform for Cybersecurity, Safety, and Mobility Research
 
 This environment is tested and verified in Linux and Windows systems. 
 
-## Version: 
+## Version
 
 - Carla : 0.9.15
 - InstantVeins: instant-veins-5.2-i1
+
+## Citation
+If you find this work useful in your research, please consider citing our paper: [**OpenCAMS: An Open‑Source Connected and Automated Mobility Co‑Simulation Platform for Advancing Next‑Generation Intelligent Transportation Systems Research**](https://arxiv.org/abs/2507.09186) 
+
+```bibtex
+@article{ahmad2025opencams,
+  title={OpenCAMS: An Open-Source Connected and Automated Mobility Co-Simulation Platform for Advanced Transportation Research},
+  author={Ahmad, Minhaj Uddin and Abrar, Akid and Dasgupta, Sagar and Rahman, Mizanur},
+  journal={arXiv preprint arXiv:2507.09186},
+  year={2025}
+}
+```
+
 
 ## Note
 
