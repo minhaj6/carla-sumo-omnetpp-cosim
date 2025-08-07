@@ -1,5 +1,5 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2507.09186-b31b1b.svg)](https://arxiv.org/abs/2507.09186)
-# CARLA-SUMO-OMNET++ Co-Simulation Platform for Cybersecurity, Safety, and Mobility Research
+# CARLA-SUMO-OMNeT++ Co-Simulation Platform for Cybersecurity, Safety, and Mobility Research
 
 This environment is tested and verified in Linux and Windows systems. 
 
