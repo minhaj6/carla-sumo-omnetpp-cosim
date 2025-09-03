@@ -28,7 +28,7 @@ class CarlaSimulation(object):
     """
     def __init__(self, host, port, step_length, town_map, sumo_cfg_file):
         self.client = carla.Client(host, port)
-        self.client.set_timeout(2.0)
+        self.client.set_timeout(30.0)
 
         # self.world = self.client.get_world()
         if town_map != "OSM":
