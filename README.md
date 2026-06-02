@@ -5,7 +5,7 @@ OpenCAMS enables synchronized co-simulation by integrating SUMO for traffic flow
 
 ## Coming soon...
 
-**Use Case**: Implementation of NIST-standardized post-quantum digital signature algorithms in Cellular Vehicle-to-Everything (C-V2X) communication for intelligent transportation system applications using OpenCAMS.
+**Use Case**: Implementation of NIST-standardized post-quantum digital signature algorithms in Cellular Vehicle-to-Everything (C-V2X) communication for intelligent transportation system applications using OpenCAMS. Update: https://arxiv.org/abs/2509.16489
 
 
 ## Citation
@@ -16,6 +16,14 @@ If you find this platform useful in your research, please consider citing our pa
   title={OpenCAMS: An Open-Source Connected and Automated Mobility Co-Simulation Platform for Advanced Transportation Research},
   author={Ahmad, Minhaj Uddin and Abrar, Akid and Dasgupta, Sagar and Rahman, Mizanur},
   journal={arXiv preprint arXiv:2507.09186},
+  year={2025}
+}
+
+
+@article{ahmad2025end,
+  title={End-to-End Co-Simulation Testbed for Cybersecurity Research and Development in Intelligent Transportation Systems},
+  author={Ahmad, Minhaj Uddin and Abrar, Akid and Dasgupta, Sagar and Rahman, Mizanur},
+  journal={arXiv preprint arXiv:2509.16489},
   year={2025}
 }
 ```
