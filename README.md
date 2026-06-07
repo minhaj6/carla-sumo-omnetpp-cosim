@@ -9,7 +9,10 @@ OpenCAMS enables synchronized co-simulation by integrating SUMO for traffic flow
 
 
 ## Citation
-If you find this platform useful in your research, please consider citing our paper: [**OpenCAMS: An Open‑Source Connected and Automated Mobility Co‑Simulation Platform for Advancing Next‑Generation Intelligent Transportation Systems Research**](https://arxiv.org/abs/2507.09186) 
+If you find this platform useful in your research, please consider citing our papers: 
+1. [OpenCAMS: An Open‑Source Connected and Automated Mobility Co‑Simulation Platform for Advancing Next‑Generation Intelligent Transportation Systems Research](https://arxiv.org/abs/2507.09186)
+2. [End-to-End Co-Simulation Testbed for Cybersecurity Research and Development in Intelligent Transportation Systems
+](https://arxiv.org/abs/2509.16489)
 
 ```bibtex
 @article{ahmad2025opencams,
